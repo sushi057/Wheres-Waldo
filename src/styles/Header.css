@@ -1,0 +1,13 @@
+.nav-bar {
+  display: flex;
+}
+
+.characters {
+  display: flex;
+}
+
+img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+}
