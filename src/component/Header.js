@@ -8,7 +8,10 @@ function Header() {
   return (
     <>
       <div className="nav-bar">
-        <h2>Where are they?</h2>
+        <h2>
+          WHERE <br />
+          <span className="title">ARE</span>THEY{" "}
+        </h2>
         <div className="timer">00:00</div>
         <div className="characters">
           <div className="char-one">
