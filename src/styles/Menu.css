@@ -1,5 +1,18 @@
+.menu-background {
+  backdrop-filter: blur(10px);
+  height: 100vh;
+  margin-top: 10px;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .menu {
-  border: 5px solid black;
+  /* border: 5px solid black; */
   border-radius: 4px;
   display: flex;
   flex-direction: column;
