@@ -15,20 +15,18 @@ function Menu() {
       {showMenu && (
         <div className="menu-background">
           <div className="menu">
-            <h2>Welcome</h2>
-            <p>
-              You need to find the folowign characters from the image provided.
-            </p>
+            <h2>WELCOME</h2>
+            <p>FIND THESE CHARACTERS FROM THE WEEKLY SHONEN JUMP </p>
             <div className="characters">
-              <div className="char-one">
+              <div className="char-menu">
                 <img src={Ichigo} alt="ichigo" />
                 <p className="char-name">Ichigo</p>
               </div>
-              <div className="char-two">
+              <div className="char-menu">
                 <img src={Elric} alt="elric" />
                 <p className="char-name">Edward</p>
               </div>
-              <div className="char-one">
+              <div className="char-menu">
                 <img src={Light} alt="light" />
                 <p className="char-name">Light</p>
               </div>

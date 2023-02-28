@@ -1,5 +1,5 @@
 .menu-background {
-  backdrop-filter: blur(10px);
+  background-color: hsla(205, 16%, 7%, 0.945);
   height: 100vh;
   margin-top: 10px;
   position: fixed;
@@ -12,9 +12,30 @@
 }
 
 .menu {
-  /* border: 5px solid black; */
+  color: #eeeeee;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 12px;
+}
+
+.menu h2 {
+  font-size: 3rem;
+}
+
+.menu p {
+  font-size: 1.6rem;
+}
+
+button {
+  font-size: 2rem;
+  padding: 5px 36px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.char-menu img {
+  height: 122px;
+  width: auto;
 }
