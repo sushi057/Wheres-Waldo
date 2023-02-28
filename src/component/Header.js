@@ -14,15 +14,15 @@ function Header() {
         </h2>
         <div className="timer">00:00</div>
         <div className="characters">
-          <div className="char-one">
+          <div className="charac">
             <img src={Ichigo} alt="ichigo" />
             <p className="char-name">Ichigo</p>
           </div>
-          <div className="char-two">
+          <div className="charac">
             <img src={Elric} alt="elric" />
             <p className="char-name">Edward</p>
           </div>
-          <div className="char-one">
+          <div className="charac">
             <img src={Light} alt="light" />
             <p className="char-name">Light</p>
           </div>

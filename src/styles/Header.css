@@ -2,7 +2,10 @@
   display: flex;
   justify-content: space-between;
   position: sticky;
-  top: 2px;
+  top: 0px;
+  background-color: #303841;
+  color: #eeeeee;
+  padding: 5px;
 }
 
 h2 {
@@ -12,13 +15,29 @@ h2 {
   align-items: center;
 }
 
+.title {
+  color: #f6c90e;
+}
+
 .timer {
   display: flex;
   align-items: center;
+  font-size: 2.3rem;
+  font-weight: bold;
 }
 
 .characters {
   display: flex;
+  gap: 12px;
+}
+
+.char-name {
+  color: #f6c90e;
+}
+
+.charac img {
+  border-radius: 50%;
+  margin: 0 6px;
 }
 
 img {
