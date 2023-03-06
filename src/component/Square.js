@@ -1,10 +1,13 @@
 import React from "react";
 import "../styles/Square.css";
 
-function Square() {
+function Square({ x, y }) {
   return (
     <>
-      <div className="square-box">
+      <div
+        className="square-box"
+        style={{ position: "absolute", left: x, top: y }}
+      >
         {/* <div className="main-square"></div> */}
         <div className="char-list">
           <li>Ichigo</li>

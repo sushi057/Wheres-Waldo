@@ -12,7 +12,6 @@ function App() {
       <Header />
       <Menu />
       <Game />
-     
     </div>
   );
 }
