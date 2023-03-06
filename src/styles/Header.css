@@ -13,6 +13,7 @@ h2 {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  padding: 2px 12px;
 }
 
 .title {
@@ -29,6 +30,7 @@ h2 {
 .characters {
   display: flex;
   gap: 12px;
+  font-size: 1.2rem;
 }
 
 .char-name {
