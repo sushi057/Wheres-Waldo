@@ -8,9 +8,9 @@ function Game() {
   const [showSquare, setShowSquare] = useState(false);
 
   const handleMouseClick = (event) => {
-    setSquarePosition({ x: event.clientX, y: event.clientY });
-    setShowSquare(true)
-
+    setSquarePosition({ x: event.clientX - 67, y: event.clientY - 30 });
+    setShowSquare(true);
+    console.log(squarePosition.x, squarePosition.y);
   };
 
   return (
