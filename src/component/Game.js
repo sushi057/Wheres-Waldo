@@ -22,7 +22,7 @@ function Game() {
   }, []);
 
   const handleMouseClick = (event) => {
-    setSquarePosition({ x: event.clientX - 67, y: event.clientY - 30 });
+    setSquarePosition({ x: event.pageX - 67, y: event.pageY - 30 });
     setShowSquare(true);
     console.log(squarePosition.x, squarePosition.y);
   };

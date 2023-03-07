@@ -6,6 +6,7 @@
   background-color: #303841;
   color: #eeeeee;
   padding: 5px;
+  z-index: 10;
 }
 
 h2 {
