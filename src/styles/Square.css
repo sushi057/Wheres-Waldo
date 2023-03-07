@@ -1,3 +1,16 @@
+.square-box {
+  /* border: 5px solid;
+  border-radius: 100%;  */
+  display: flex;
+}
+
+.main-square {
+  border: 5px solid;
+  border-radius: 100%;
+  width: 50px;
+}
+
 .char-list {
   border: 5px solid;
+  margin-left: 12px;
 }

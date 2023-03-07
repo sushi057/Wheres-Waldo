@@ -5,10 +5,12 @@ import Square from "./Square";
 
 function Game() {
   const [squarePosition, setSquarePosition] = useState({ x: 0, y: 0 });
+  const [showSquare, setShowSquare] = useState(false);
 
   const handleMouseClick = (event) => {
     setSquarePosition({ x: event.clientX, y: event.clientY });
-    console.log(event.clientX);
+    setShowSquare(true)
+
   };
 
   return (
@@ -19,7 +21,7 @@ function Game() {
         id="main-picture"
         onClick={handleMouseClick}
       />
-      <Square x={squarePosition.x} y={squarePosition.y} />
+      {showSquare && <Square x={squarePosition.x} y={squarePosition.y} />}
     </div>
   );
 }
