@@ -10,9 +10,15 @@ function Square({ x, y }) {
       >
         <div className="main-square"></div>
         <div className="char-list">
-          <li>Ichigo</li>
-          <li>Edward</li>
-          <li>Light</li>
+          <button type="button" className="char-button">
+            Ichigo
+          </button>
+          <button type="button" className="char-button">
+            Edward
+          </button>
+          <button type="button" className="char-button">
+            Light
+          </button>
         </div>
       </div>
     </>

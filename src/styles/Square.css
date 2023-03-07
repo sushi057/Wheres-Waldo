@@ -13,4 +13,10 @@
 .char-list {
   border: 5px solid;
   margin-left: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.char-button {
+  font-size: 12px;
 }
