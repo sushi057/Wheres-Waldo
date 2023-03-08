@@ -7,20 +7,6 @@ function Game() {
   const [squarePosition, setSquarePosition] = useState({ x: 0, y: 0 });
   const [showSquare, setShowSquare] = useState(false);
 
-  useEffect(() => {
-    function handleKeyDown(event) {
-      if (event.key === "Escape") {
-        setShowSquare(false);
-      }
-    }
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
-
   const handleMouseClick = (event) => {
     setSquarePosition({ x: event.pageX - 67, y: event.pageY - 30 });
     setShowSquare(true);
