@@ -13,6 +13,21 @@ function Game() {
     console.log(squarePosition.x, squarePosition.y);
   };
 
+  //Remove Popup on 'Esc' key press
+  useEffect(() => {
+    function handleKeyDown(event) {
+      if (event.key === "Escape") {
+        setShowSquare(false);
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   return (
     <div className="game">
       <img
