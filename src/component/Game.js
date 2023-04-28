@@ -8,32 +8,30 @@ import { collection, getDocs } from "firebase/firestore";
 function Game() {
   const [squarePosition, setSquarePosition] = useState({ x: 0, y: 0 });
   const [showSquare, setShowSquare] = useState(false);
+  const [charLocations, setCharLocations] = useState();
 
+  //Record User Mouse Click Locations
   const handleMouseClick = (event) => {
     setSquarePosition({ x: event.pageX - 67, y: event.pageY - 30 });
     setShowSquare(true);
     console.log(squarePosition.x, squarePosition.y);
   };
 
-  //Fetch Character Locations
+  
   useEffect(() => {
-    (async () => {
-      const colRef = collection(db, "locations");
-
-      const snapshots = await getDocs(colRef);
-
-      // eslint-disable-next-line array-callback-return
-      const docs = snapshots.docs.map((doc) => {
-        const data = doc.data();
-
-        data.id = doc.id;
-
-        return data;
+    const colRef = collection(db, "locations");
+    getDocs(colRef)
+      .then((snapshot) => {
+        let locations = [];
+        snapshot.docs.forEach((doc) => {
+          locations.push({ ...doc.data(), id: doc.id });
+        });
+        console.log(locations);
+      })
+      .catch((err) => {
+        console.log("error");
       });
-
-      console.log(docs);
-    })();
-  }, []);
+  });
 
   //Remove Popup on 'Esc' key press
   useEffect(() => {

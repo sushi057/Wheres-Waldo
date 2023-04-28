@@ -9,8 +9,8 @@ function Header() {
     <>
       <div className="nav-bar">
         <h2>
-          WHERE <br />
-          <span className="title">ARE</span>THEY{" "}
+          HIDE <br />
+          <span className="title">AND</span>SEEK{" "}
         </h2>
         <div className="timer">00:00</div>
         <div className="characters">

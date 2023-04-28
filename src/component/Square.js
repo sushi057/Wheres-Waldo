@@ -1,7 +1,8 @@
 import React from "react";
 import "../styles/Square.css";
 
-function Square({ x, y }) {
+function Square(props) {
+  const { x, y, status = false } = props;
   return (
     <>
       <div
