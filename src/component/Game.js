@@ -126,7 +126,11 @@ function Game() {
         id="main-picture"
         onClick={handleMouseClick}
       />
-      {showSquare && <Square x={squarePosition.x} y={squarePosition.y} />}
+      <Square
+        x={squarePosition.x}
+        y={squarePosition.y}
+        handleClick={handleClick}
+      />
     </div>
   );
 }

@@ -24,3 +24,7 @@
 .char-button {
   font-size: 12px;
 }
+
+.clicked {
+  display: none;
+}
