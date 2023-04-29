@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/Square.css";
 
 function Square(props) {
-  const { x, y, status = false } = props;
+  const { x, y } = props;
   return (
     <>
       <div
