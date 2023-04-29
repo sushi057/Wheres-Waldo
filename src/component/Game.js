@@ -22,51 +22,43 @@ function Game() {
 
   const handleClick = (event, character) => {
     // Get the x and y coordinates of the user's click event relative to the image
-    const rect = event.target.getBoundingClientRect();
-    const x = event.pageX - rect.left;
-    const y = event.pageY - rect.top;
+    const x = event.pageX;
+    const y = event.pageY;
 
     // Check if the user clicked within the rectangle area for the specified character
     switch (character) {
       case "Ichigo":
         console.log("ichigo case");
-        ichigoLocations.forEach((location) => {
-          console.log(location);
-          if (
-            x >= location[0] - tolerance &&
-            x <= location[0] + tolerance &&
-            y >= location[1] - tolerance &&
-            y <= location[1] + tolerance
-          ) {
-            console.log("found ichigo");
-          }
-        });
+        if (
+          x >= ichigoLocations[0] - tolerance &&
+          x <= ichigoLocations[0] + tolerance &&
+          y >= ichigoLocations[1] - tolerance &&
+          y <= ichigoLocations[1] + tolerance
+        ) {
+          console.log("found ichigo");
+        }
         break;
       case "Light":
         console.log("light case");
-        lightLocations.forEach((location) => {
-          if (
-            x >= location[0] - tolerance &&
-            x <= location[0] + tolerance &&
-            y >= location[1] - tolerance &&
-            y <= location[1] + tolerance
-          ) {
-            console.log("found light");
-          }
-        });
+        if (
+          x >= lightLocations[0] - tolerance &&
+          x <= lightLocations[0] + tolerance &&
+          y >= lightLocations[1] - tolerance &&
+          y <= lightLocations[1] + tolerance
+        ) {
+          console.log("found light");
+        }
         break;
       case "Edward":
         console.log("edward case");
-        edwardLocations.forEach((location) => {
-          if (
-            x >= location[0] - tolerance &&
-            x <= location[0] + tolerance &&
-            y >= location[1] - tolerance &&
-            y <= location[1] + tolerance
-          ) {
-            console.log("found edward");
-          }
-        });
+        if (
+          x >= edwardLocations[0] - tolerance &&
+          x <= edwardLocations[0] + tolerance &&
+          y >= edwardLocations[1] - tolerance &&
+          y <= edwardLocations[1] + tolerance
+        ) {
+          console.log("found edward");
+        }
         break;
       default:
         console.log(`Invalid character: ${character}`);
@@ -124,7 +116,7 @@ function Game() {
         button.removeEventListener("click", (event) => handleClick(event, ""));
       });
     };
-  }, []);
+  }, [ichigoLocations, lightLocations, edwardLocations]);
 
   return (
     <div className="game">
