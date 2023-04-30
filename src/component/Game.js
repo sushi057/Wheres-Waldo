@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import anime from "../images/anime.jpg";
 import "../styles/Game.css";
 import Square from "./Square";
+import Header from "./Header";
 import db from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
 
@@ -11,13 +12,21 @@ function Game() {
   const [ichigoLocations, setIchigoLocations] = useState([]);
   const [lightLocations, setLightLocations] = useState([]);
   const [edwardLocations, setEdwardLocations] = useState([]);
-  const tolerance = 300;
+  const [foundCharacters, setFoundCharacters] = useState([]);
+  const tolerance = 100;
 
   //Record User Mouse Click Locations
   const handleMouseClick = (event) => {
     setSquarePosition({ x: event.pageX - 67, y: event.pageY - 30 });
     setShowSquare(true);
     console.log(event.pageX, event.pageY);
+  };
+
+  const handleCharacterFound = (character) => {
+    setFoundCharacters((prevFoundCharacters) => [
+      ...prevFoundCharacters,
+      character,
+    ]);
   };
 
   const handleClick = (event, character) => {
@@ -36,6 +45,7 @@ function Game() {
           y <= ichigoLocations[1] + tolerance
         ) {
           console.log("found ichigo");
+          handleCharacterFound("Ichigo");
         }
         break;
       case "Light":
@@ -47,6 +57,7 @@ function Game() {
           y <= lightLocations[1] + tolerance
         ) {
           console.log("found light");
+          handleCharacterFound("Light");
         }
         break;
       case "Edward":
@@ -58,6 +69,7 @@ function Game() {
           y <= edwardLocations[1] + tolerance
         ) {
           console.log("found edward");
+          handleCharacterFound("Edward");
         }
         break;
       default:
@@ -78,29 +90,13 @@ function Game() {
         setIchigoLocations(locations[0].Ichigo);
         setLightLocations(locations[1].Light);
         setEdwardLocations(locations[2].Edward);
-        console.log(locations);
-
         console.log(ichigoLocations, lightLocations, edwardLocations);
       })
 
       .catch((err) => {
         console.log(err.message);
       });
-  }, []);
-
-  //Remove Popup on 'Esc' key press
-  useEffect(() => {
-    function handleKeyDown(event) {
-      if (event.key === "Escape") {
-        setShowSquare(false);
-      }
-    }
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
+  }, [ichigoLocations, lightLocations, edwardLocations]);
 
   //Add click events to all characters
   useEffect(() => {
@@ -118,19 +114,37 @@ function Game() {
     };
   }, [ichigoLocations, lightLocations, edwardLocations]);
 
+  //Remove Popup on 'Esc' key press
+  useEffect(() => {
+    function handleKeyDown(event) {
+      if (event.key === "Escape") {
+        setShowSquare(false);
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   return (
     <div className="game">
+      <Header foundCharacters={foundCharacters} />
       <img
         src={anime}
         alt="anime tag"
         id="main-picture"
         onClick={handleMouseClick}
       />
-      <Square
-        x={squarePosition.x}
-        y={squarePosition.y}
-        handleClick={handleClick}
-      />
+      {showSquare && (
+        <Square
+          x={squarePosition.x}
+          y={squarePosition.y}
+          handleClick={handleClick}
+          foundCharacters={foundCharacters}
+        />
+      )}
     </div>
   );
 }

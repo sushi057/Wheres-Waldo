@@ -2,12 +2,18 @@ import React, { useState } from "react";
 import "../styles/Square.css";
 
 function Square(props) {
-  const { x, y, handleClick } = props;
+  const { x, y, handleClick, foundCharacters } = props;
   const [clickedButtons, setClickedButtons] = useState([]);
 
   const handleButtonClick = (event, character) => {
-    setClickedButtons([...clickedButtons, character]);
     handleClick(event, character);
+    if (foundCharacters && foundCharacters.includes(character)) {
+      setClickedButtons((prevClickedButtons) => [
+        ...prevClickedButtons,
+        character,
+      ]);
+    }
+    console.log(clickedButtons);
   };
 
   return (

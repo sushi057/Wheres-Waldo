@@ -48,3 +48,7 @@ img {
   height: 64px;
   object-fit: cover;
 }
+
+.found {
+  filter: grayscale(100%);
+}
