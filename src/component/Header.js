@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/Header.css";
 import Elric from "../images/edward.jpg";
 import Ichigo from "../images/ichigo.jpg";
 import Light from "../images/light.jpg";
+import { formatTime } from "../utils/FormatTime";
 
-function Header({ foundCharacters }) {
+function Header({ foundCharacters, startGame, time }) {
   return (
     <>
       <div className="nav-bar">
@@ -12,7 +13,7 @@ function Header({ foundCharacters }) {
           HIDE <br />
           <span className="title">AND</span>SEEK{" "}
         </h2>
-        <div className="timer">00:00</div>
+        <div className="timer">Time: {formatTime(time)}</div>
         <div className="characters">
           <div
             className={`charac ${

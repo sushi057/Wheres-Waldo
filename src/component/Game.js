@@ -51,10 +51,6 @@ function Game() {
       ...prevFoundCharacters,
       character,
     ]);
-    if (foundCharacters.length === 2) {
-      const intervalId = startTimer();
-      stopTimer(intervalId);
-    }
   };
 
   const handleClick = (event, character) => {
@@ -74,6 +70,7 @@ function Game() {
         ) {
           console.log("found ichigo");
           handleCharacterFound("Ichigo");
+          console.log(foundCharacters);
         }
         break;
       case "Light":
@@ -142,6 +139,18 @@ function Game() {
     };
   }, [ichigoLocations, lightLocations, edwardLocations]);
 
+  useEffect(() => {
+    if (
+      foundCharacters.includes("Ichigo") &&
+      foundCharacters.includes("Edward") &&
+      foundCharacters.includes("Light")
+    ) {
+      const intervalId = startTimer();
+      stopTimer(intervalId);
+      console.log(gameOver);
+    }
+  }, [foundCharacters]);
+
   //Remove Popup on 'Esc' key press
   useEffect(() => {
     function handleKeyDown(event) {
@@ -186,7 +195,7 @@ function Game() {
 function GameOver({ time }) {
   return (
     <div className="game-over">
-      <h1>Game Over!</h1>
+      <h1>Congratulations! You won</h1>
       <p>Your time: {formatTime(time)}</p>
     </div>
   );
