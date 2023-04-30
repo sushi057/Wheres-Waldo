@@ -3,6 +3,8 @@ import anime from "../images/anime.jpg";
 import "../styles/Game.css";
 import Square from "./Square";
 import Header from "./Header";
+import Menu from "./Menu";
+import { formatTime } from "../utils/FormatTime";
 import db from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
 
@@ -13,7 +15,29 @@ function Game() {
   const [lightLocations, setLightLocations] = useState([]);
   const [edwardLocations, setEdwardLocations] = useState([]);
   const [foundCharacters, setFoundCharacters] = useState([]);
+  const [time, setTime] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
   const tolerance = 100;
+
+  //Timer Functions
+  const startTimer = () => {
+    const intervalId = setInterval(() => {
+      setTime((prevTime) => prevTime + 1);
+    }, 1000);
+    return intervalId;
+  };
+
+  const stopTimer = (intervalId) => {
+    clearInterval(intervalId);
+    setGameOver(true);
+  };
+
+  const startGame = () => {
+    setShowSquare(false);
+    setFoundCharacters([]);
+    setTime(0);
+    setGameOver(false);
+  };
 
   //Record User Mouse Click Locations
   const handleMouseClick = (event) => {
@@ -27,6 +51,10 @@ function Game() {
       ...prevFoundCharacters,
       character,
     ]);
+    if (foundCharacters.length === 2) {
+      const intervalId = startTimer();
+      stopTimer(intervalId);
+    }
   };
 
   const handleClick = (event, character) => {
@@ -130,7 +158,12 @@ function Game() {
 
   return (
     <div className="game">
-      <Header foundCharacters={foundCharacters} />
+      <Menu startTimer={startTimer} />
+      <Header
+        foundCharacters={foundCharacters}
+        startGame={startGame}
+        time={time}
+      />
       <img
         src={anime}
         alt="anime tag"
@@ -145,6 +178,16 @@ function Game() {
           foundCharacters={foundCharacters}
         />
       )}
+      {gameOver && <GameOver time={time} />}
+    </div>
+  );
+}
+
+function GameOver({ time }) {
+  return (
+    <div className="game-over">
+      <h1>Game Over!</h1>
+      <p>Your time: {formatTime(time)}</p>
     </div>
   );
 }

@@ -4,11 +4,12 @@ import Elric from "../images/edward.jpg";
 import Ichigo from "../images/ichigo.jpg";
 import Light from "../images/light.jpg";
 
-function Menu() {
+function Menu({ startTimer }) {
   const [showMenu, setShowMenu] = useState(true);
 
   const handleChange = () => {
     setShowMenu(!showMenu);
+    startTimer();
   };
   return (
     <>
