@@ -16,6 +16,7 @@ function Game() {
   const [edwardLocations, setEdwardLocations] = useState([]);
   const [foundCharacters, setFoundCharacters] = useState([]);
   const [time, setTime] = useState(0);
+  const [winTime, setWinTime] = useState(null);
   const [gameOver, setGameOver] = useState(false);
   const tolerance = 100;
 
@@ -29,7 +30,6 @@ function Game() {
 
   const stopTimer = (intervalId) => {
     clearInterval(intervalId);
-    setGameOver(true);
   };
 
   const startGame = () => {
@@ -70,7 +70,6 @@ function Game() {
         ) {
           console.log("found ichigo");
           handleCharacterFound("Ichigo");
-          console.log(foundCharacters);
         }
         break;
       case "Light":
@@ -123,6 +122,19 @@ function Game() {
       });
   }, [ichigoLocations, lightLocations, edwardLocations]);
 
+  //Check if all characters have been found
+  useEffect(() => {
+    const winTime = null;
+    if (
+      foundCharacters.includes("Ichigo") &&
+      foundCharacters.includes("Edward") &&
+      foundCharacters.includes("Light")
+    ) {
+      setGameOver(true);
+      setWinTime(time);
+    }
+  }, [foundCharacters]);
+
   //Add click events to all characters
   useEffect(() => {
     const charButtons = document.querySelectorAll(".char-button");
@@ -138,18 +150,6 @@ function Game() {
       });
     };
   }, [ichigoLocations, lightLocations, edwardLocations]);
-
-  useEffect(() => {
-    if (
-      foundCharacters.includes("Ichigo") &&
-      foundCharacters.includes("Edward") &&
-      foundCharacters.includes("Light")
-    ) {
-      const intervalId = startTimer();
-      stopTimer(intervalId);
-      console.log(gameOver);
-    }
-  }, [foundCharacters]);
 
   //Remove Popup on 'Esc' key press
   useEffect(() => {
@@ -172,6 +172,7 @@ function Game() {
         foundCharacters={foundCharacters}
         startGame={startGame}
         time={time}
+        gameOver={gameOver}
       />
       <img
         src={anime}
@@ -187,7 +188,7 @@ function Game() {
           foundCharacters={foundCharacters}
         />
       )}
-      {gameOver && <GameOver time={time} />}
+      {gameOver && <GameOver time={winTime} />}
     </div>
   );
 }
@@ -195,7 +196,7 @@ function Game() {
 function GameOver({ time }) {
   return (
     <div className="game-over">
-      <h1>Congratulations! You won</h1>
+      <h1>Congratualtions! You won!</h1>
       <p>Your time: {formatTime(time)}</p>
     </div>
   );
