@@ -168,12 +168,14 @@ function Game() {
   return (
     <div className="game">
       <Menu startTimer={startTimer} />
-      <Header
-        foundCharacters={foundCharacters}
-        startGame={startGame}
-        time={time}
-        gameOver={gameOver}
-      />
+      {!gameOver && (
+        <Header
+          foundCharacters={foundCharacters}
+          startGame={startGame}
+          time={time}
+          gameOver={gameOver}
+        />
+      )}
       <img
         src={anime}
         alt="anime tag"
