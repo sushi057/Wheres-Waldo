@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/%7BWheres-Waldo%7D/static/css/main.6e7e0888.css",
-    "main.js": "/%7BWheres-Waldo%7D/static/js/main.dacb385c.js",
-    "static/media/anime.jpg": "/%7BWheres-Waldo%7D/static/media/anime.635651f3d95499a94c1f.jpg",
-    "static/media/edward.jpg": "/%7BWheres-Waldo%7D/static/media/edward.802265a11cce48fd8412.jpg",
-    "static/media/ichigo.jpg": "/%7BWheres-Waldo%7D/static/media/ichigo.fd41abdea9b442b49ba5.jpg",
-    "static/media/light.jpg": "/%7BWheres-Waldo%7D/static/media/light.2107ccd4084d3319268e.jpg",
-    "index.html": "/%7BWheres-Waldo%7D/index.html",
-    "main.6e7e0888.css.map": "/%7BWheres-Waldo%7D/static/css/main.6e7e0888.css.map",
-    "main.dacb385c.js.map": "/%7BWheres-Waldo%7D/static/js/main.dacb385c.js.map"
+    "main.css": "/Wheres-Waldo/static/css/main.6e7e0888.css",
+    "main.js": "/Wheres-Waldo/static/js/main.83af9154.js",
+    "static/media/anime.jpg": "/Wheres-Waldo/static/media/anime.635651f3d95499a94c1f.jpg",
+    "static/media/edward.jpg": "/Wheres-Waldo/static/media/edward.802265a11cce48fd8412.jpg",
+    "static/media/ichigo.jpg": "/Wheres-Waldo/static/media/ichigo.fd41abdea9b442b49ba5.jpg",
+    "static/media/light.jpg": "/Wheres-Waldo/static/media/light.2107ccd4084d3319268e.jpg",
+    "index.html": "/Wheres-Waldo/index.html",
+    "main.6e7e0888.css.map": "/Wheres-Waldo/static/css/main.6e7e0888.css.map",
+    "main.83af9154.js.map": "/Wheres-Waldo/static/js/main.83af9154.js.map"
   },
   "entrypoints": [
     "static/css/main.6e7e0888.css",
-    "static/js/main.dacb385c.js"
+    "static/js/main.83af9154.js"
   ]
 }
